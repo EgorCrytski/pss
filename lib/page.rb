@@ -2,19 +2,20 @@ require 'nokogiri'
 require 'curb'
 
 class Page
-  @@number_of_pages = 0
-  def initialize(url)
-    @page_url = url
-    @body = load
-  end
+  attr_reader :body
+  attr_reader :url
+  attr_reader :status
 
-  def print_body
-    puts(@body)
+  def initialize(url)
+    @url = url
+    @body = load
   end
 
   private
 
   def load
-    Nokogiri::HTML(Curl.get(@page_url).body_str)
+    http = Curl.get(@url)
+    @status = http.status
+    Nokogiri::HTML(http.body_str)
   end
 end
