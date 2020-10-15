@@ -3,9 +3,11 @@ require_relative "./lib/product"
 require_relative "./lib/category"
 require_relative "./lib/csv"
 
-url = "https://www.petsonic.com/pienso-acana-para-gatos/"
+url = ARGV.first
+csv_name = ARGV.last
+
 category = Category.new(url)
 category.load_products
-csv = CSVWriter.new("test.csv")
+csv = CSVWriter.new(csv_name)
 csv.write_product(category.products)
 puts("Job done")

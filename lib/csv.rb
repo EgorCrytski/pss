@@ -3,7 +3,7 @@ require 'csv'
 class CSVWriter
   def initialize(file_name)
     @name = file_name
-    @full_path = Dir.pwd << '/output/' << @name
+    @full_path = Dir.pwd << '/output/' << @name << '.csv'
   end
 
   def write_product(products)
