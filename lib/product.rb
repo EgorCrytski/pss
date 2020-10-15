@@ -1,15 +1,17 @@
-require 'nokogiri'
-require 'curb'
 require_relative 'page'
 
 class Product
-  attr_accessor :name
-  attr_accessor :price
-  attr_accessor :image
+  attr_reader :name
+  attr_reader :price
+  attr_reader :image
 
-  def initialize; end
+  def initialize(name, price, image)
+    @name = name
+    @price = price
+    @image = image
+  end
 
   def print
-    puts("name: #{@name}; price: #{@price}; image: #{@image}")
+    puts("name: #{@name};\nprice: #{@price};\nimage: #{@image}\n\n")
   end
 end
