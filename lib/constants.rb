@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Constants
   XP_PRODUCT_URLS = "//*[@id='product_list']/li/div[1]/div[2]/div[2]/a"
   XP_PRODUCT_VARIATIONS = "//*[@id='attributes']/fieldset/div/ul/child::node()"

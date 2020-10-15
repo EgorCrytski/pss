@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'page'
 require_relative 'product'
 require_relative 'constants'
@@ -42,7 +44,6 @@ class Category
   def load_products
     products_urls = get_products_urls
     products = []
-
     puts("Parse all products in a category\n\n")
     products_urls.each do |url|
       page = Page.new(url)
@@ -57,13 +58,11 @@ class Category
         price = data.xpath(Constants::XP_PRODUCT_PRICE)[var]
         product = Product.new(variation_name, price, picture)
         products << product
-        product.print()
-
+        product.print
         var += 1
       end
     end
     puts("Done. Products have been parsed\n\n")
     @products = products
-
   end
 end
